@@ -107,12 +107,12 @@ Five tests has been requested in the scenario, testing the rest endpoint, but th
 
 JUnitTests classes:
 
-* [PvpControllerIntegrationTests](src/test/java/com/pvpmanager/springboot/app/PvpControllerIntegrationTests.java): 
+* [PvpControllerIntegrationTests](spring-boot-pvpmanager/src/test/java/com/pvpmanager/springboot/app/PvpControllerIntegrationTests.java): 
    * test the rest endpoint. 
    * using ```MockMvc```
    * **required** tests.
 
-* [IPriceDaoTests](src/test/java/com/pvpmanager/springboot/app/IPriceDaoTests.java): 
+* [IPriceDaoTests](spring-boot-pvpmanager/src/test/java/com/pvpmanager/springboot/app/IPriceDaoTests.java): 
    * test the select operations to database. 
    * using ```@DataJpaTest```
    * **additional** tests
