@@ -25,7 +25,7 @@ Is asked:
   * accept as input parameters: application date, product identifier and brand identifier.
   * return as output parameters: product identifier, brand identifier, rate that will be applied, date range when the price is applied and final sale price.
   
-A in-memory database (h2 like) must be used and it can be initialized with the example data shown previosluy, (the name of the fields can be changed and more fields can be added if is desired, choose the data type that consider right per each field).
+A in-memory database (h2 like) must be used and it can be initialized with the example data shown previously, (the name of the fields can be changed and more fields can be added if is desired, choose the data type that consider right per each field).
 
 * Develop endpoint REST API tests that validate the following requests to the service with the example data:
   * Test 1: request at 10:00 of the day 14th of the product 35455 for brand 1
