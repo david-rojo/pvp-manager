@@ -65,6 +65,7 @@ The project is deployed and ready to verify that implement the requested scenari
 
 When the project is deployed, also is available h2 console: [http://localhost:8080/h2-console](http://localhost:8080/h2-console) in order to connect there and verify that the database initially has the requested content. 
 
+![H2 CONSOLE](doc/img/h2-console-login.png)
 
 This data can be used to login:
 ```
@@ -79,12 +80,14 @@ Once we are logged, we can check the content of **PRICES** table executing this 
 SELECT * FROM PRICES 
 ```
 
+![PRICES TABLE CONTENT](doc/img/h2-table-content.png)
+
 ## Executing JUnit tests
 
 To run the requested tests we can do it executing this command from **spring-boot-pvpmanager** folder:
 
 ```
-mvn clean package 
+$ mvn clean package 
 ```
 > **Note:** mvn has to be installed in order to execute the command
 
