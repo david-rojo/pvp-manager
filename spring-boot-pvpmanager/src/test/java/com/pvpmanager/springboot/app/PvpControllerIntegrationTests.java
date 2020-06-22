@@ -71,8 +71,10 @@ public class PvpControllerIntegrationTests {
 		Integer targetPriceList = 1;
 		String requestedDate = "2020-06-14-10.00.00";
 
-		mockMvc.perform(MockMvcRequestBuilders.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(MockMvcResultMatchers.status().isOk())
+		mockMvc.perform(MockMvcRequestBuilders
+				.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRICE_LIST).value(targetPriceList))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_BRAND_ID).value(SEARCHED_BRAND_ID))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRODUCT_ID).value(SEARCHED_PRODUCT_ID))
@@ -87,8 +89,10 @@ public class PvpControllerIntegrationTests {
 		Integer targetPriceList = 2;
 		String requestedDate = "2020-06-14-16.00.00";
 
-		mockMvc.perform(MockMvcRequestBuilders.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(MockMvcResultMatchers.status().isOk())
+		mockMvc.perform(MockMvcRequestBuilders
+				.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRICE_LIST).value(targetPriceList))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_BRAND_ID).value(SEARCHED_BRAND_ID))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRODUCT_ID).value(SEARCHED_PRODUCT_ID))
@@ -103,8 +107,10 @@ public class PvpControllerIntegrationTests {
 		Integer targetPriceList = 1;
 		String requestedDate = "2020-06-14-10.00.00";
 
-		mockMvc.perform(MockMvcRequestBuilders.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(MockMvcResultMatchers.status().isOk())
+		mockMvc.perform(MockMvcRequestBuilders
+				.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRICE_LIST).value(targetPriceList))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_BRAND_ID).value(SEARCHED_BRAND_ID))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRODUCT_ID).value(SEARCHED_PRODUCT_ID))
@@ -119,8 +125,10 @@ public class PvpControllerIntegrationTests {
 		Integer targetPriceList = 3;
 		String requestedDate = "2020-06-15-10.00.00";
 
-		mockMvc.perform(MockMvcRequestBuilders.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(MockMvcResultMatchers.status().isOk())
+		mockMvc.perform(MockMvcRequestBuilders
+				.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRICE_LIST).value(targetPriceList))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_BRAND_ID).value(SEARCHED_BRAND_ID))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRODUCT_ID).value(SEARCHED_PRODUCT_ID))
@@ -135,8 +143,10 @@ public class PvpControllerIntegrationTests {
 		Integer targetPriceList = 4;
 		String requestedDate = "2020-06-16-21.00.00";
 
-		mockMvc.perform(MockMvcRequestBuilders.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
-				.contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(MockMvcResultMatchers.status().isOk())
+		mockMvc.perform(MockMvcRequestBuilders
+				.get(REST_ENDPOINT, SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, requestedDate)
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRICE_LIST).value(targetPriceList))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_BRAND_ID).value(SEARCHED_BRAND_ID))
 				.andExpect(MockMvcResultMatchers.jsonPath("$." + JSONKEY_PRODUCT_ID).value(SEARCHED_PRODUCT_ID))

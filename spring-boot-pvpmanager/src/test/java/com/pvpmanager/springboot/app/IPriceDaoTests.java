@@ -1,6 +1,5 @@
 package com.pvpmanager.springboot.app;
 
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -23,21 +22,23 @@ import com.pvpmanager.springboot.app.model.entitys.Price;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@AutoConfigureTestDatabase(replace=Replace.NONE)
+@AutoConfigureTestDatabase(replace = Replace.NONE)
 /**
- * We use the same H2 database for these tests that is used in the deployment of the application, also with the initial data loading
+ * We use the same H2 database for these tests that is used in the deployment of
+ * the application, also with the initial data loading
+ * 
  * @author David Rojo
  *
  */
 public class IPriceDaoTests {
 
 	public static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd-HH.mm.ss";
-	
+
 	public static final Integer SEARCHED_BRAND_ID = 1;
 	public static final Integer SEARCHED_PRODUCT_ID = 35455;
-	
+
 	public static final String CURRENCY_VALUE = "EUR";
-	
+
 	public static final String START_DATE_PRICELIST1 = "2020-06-14-00.00.00";
 	public static final String END_DATE_PRICELIST1 = "2020-12-31-23.59.59";
 	public static final Double PRICE_PRICELIST1 = 35.5;
@@ -50,9 +51,9 @@ public class IPriceDaoTests {
 	public static final String START_DATE_PRICELIST4 = "2020-06-15-16.00.00";
 	public static final String END_DATE_PRICELIST4 = "2020-12-31-23.59.59";
 	public static final Double PRICE_PRICELIST4 = 38.95;
-	
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN); 
-	
+
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
+
 	@Autowired
 	private IPriceDao priceDao;
 
@@ -63,9 +64,9 @@ public class IPriceDaoTests {
 		LocalDateTime ldtSearchedDate = LocalDateTime.parse(searchedDate, formatter);
 		LocalDateTime ldtStartDate = LocalDateTime.parse(START_DATE_PRICELIST1, formatter);
 		LocalDateTime ldtEndDate = LocalDateTime.parse(END_DATE_PRICELIST1, formatter);
-		
+
 		Price price = priceDao.getPvp(SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, ldtSearchedDate);
-		
+
 		assertNotNull(price);
 		assertEquals(new BigDecimal(price.getPriceList()), new BigDecimal(targetPriceList));
 		assertEquals(new BigDecimal(price.getBrandId()), new BigDecimal(SEARCHED_BRAND_ID));
@@ -75,7 +76,6 @@ public class IPriceDaoTests {
 		assertThat(price.getStartDate().isEqual(ldtStartDate), is(true));
 		assertThat(price.getEndDate().isEqual(ldtEndDate), is(true));
 	}
-	
 
 	@Test
 	public void test2() {
@@ -84,9 +84,9 @@ public class IPriceDaoTests {
 		LocalDateTime ldtSearchedDate = LocalDateTime.parse(searchedDate, formatter);
 		LocalDateTime ldtStartDate = LocalDateTime.parse(START_DATE_PRICELIST2, formatter);
 		LocalDateTime ldtEndDate = LocalDateTime.parse(END_DATE_PRICELIST2, formatter);
-		
+
 		Price price = priceDao.getPvp(SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, ldtSearchedDate);
-		
+
 		assertNotNull(price);
 		assertEquals(new BigDecimal(price.getPriceList()), new BigDecimal(targetPriceList));
 		assertEquals(new BigDecimal(price.getBrandId()), new BigDecimal(SEARCHED_BRAND_ID));
@@ -96,7 +96,7 @@ public class IPriceDaoTests {
 		assertThat(price.getStartDate().isEqual(ldtStartDate), is(true));
 		assertThat(price.getEndDate().isEqual(ldtEndDate), is(true));
 	}
-	
+
 	@Test
 	public void test3() {
 		Integer targetPriceList = 1;
@@ -104,9 +104,9 @@ public class IPriceDaoTests {
 		LocalDateTime ldtSearchedDate = LocalDateTime.parse(searchedDate, formatter);
 		LocalDateTime ldtStartDate = LocalDateTime.parse(START_DATE_PRICELIST1, formatter);
 		LocalDateTime ldtEndDate = LocalDateTime.parse(END_DATE_PRICELIST1, formatter);
-	
+
 		Price price = priceDao.getPvp(SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, ldtSearchedDate);
-		
+
 		assertNotNull(price);
 		assertEquals(new BigDecimal(price.getPriceList()), new BigDecimal(targetPriceList));
 		assertEquals(new BigDecimal(price.getBrandId()), new BigDecimal(SEARCHED_BRAND_ID));
@@ -116,7 +116,7 @@ public class IPriceDaoTests {
 		assertThat(price.getStartDate().isEqual(ldtStartDate), is(true));
 		assertThat(price.getEndDate().isEqual(ldtEndDate), is(true));
 	}
-	
+
 	@Test
 	public void test4() {
 		Integer targetPriceList = 3;
@@ -124,9 +124,9 @@ public class IPriceDaoTests {
 		LocalDateTime ldtSearchedDate = LocalDateTime.parse(searchedDate, formatter);
 		LocalDateTime ldtStartDate = LocalDateTime.parse(START_DATE_PRICELIST3, formatter);
 		LocalDateTime ldtEndDate = LocalDateTime.parse(END_DATE_PRICELIST3, formatter);
-	
+
 		Price price = priceDao.getPvp(SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, ldtSearchedDate);
-		
+
 		assertNotNull(price);
 		assertEquals(new BigDecimal(price.getPriceList()), new BigDecimal(targetPriceList));
 		assertEquals(new BigDecimal(price.getBrandId()), new BigDecimal(SEARCHED_BRAND_ID));
@@ -136,7 +136,7 @@ public class IPriceDaoTests {
 		assertThat(price.getStartDate().isEqual(ldtStartDate), is(true));
 		assertThat(price.getEndDate().isEqual(ldtEndDate), is(true));
 	}
-	
+
 	@Test
 	public void test5() {
 		Integer targetPriceList = 4;
@@ -146,7 +146,7 @@ public class IPriceDaoTests {
 		LocalDateTime ldtEndDate = LocalDateTime.parse(END_DATE_PRICELIST4, formatter);
 
 		Price price = priceDao.getPvp(SEARCHED_BRAND_ID, SEARCHED_PRODUCT_ID, ldtSearchedDate);
-		
+
 		assertNotNull(price);
 		assertEquals(new BigDecimal(price.getPriceList()), new BigDecimal(targetPriceList));
 		assertEquals(new BigDecimal(price.getBrandId()), new BigDecimal(SEARCHED_BRAND_ID));
