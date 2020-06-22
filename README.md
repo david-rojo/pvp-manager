@@ -63,6 +63,17 @@ The project is deployed and ready to verify that implement the requested scenari
   * output data: 
   ```{"priceList":4,"brandId":1,"productId":35455,"startDate":"2020-06-15T16:00:00","endDate":"2020-12-31T23:59:59","price":38.95,"currency":"EUR"}```
 
+### Additional work
+
+Going beyond the scope of the scenario, a full CRUD set of operations has been implemented for the application in order to manage **PRICES** table:
+
+- Add a new price.
+- Update an existing price.
+- Delete an existing price by ID.
+- Get all prices in the table.
+
+Implemention can be examinated in [PvpController](spring-boot-pvpmanager/src/main/java/com/pvpmanager/springboot/app/controller/PvpController.java) class
+
 ## Access to h2 console
 
 When the project is deployed, also is available h2 console: [http://localhost:8080/h2-console](http://localhost:8080/h2-console) in order to connect there and verify that the database initially has the requested content. 
