@@ -22,15 +22,23 @@ Fields:
 Is asked:
 
 * Implements a SpringBoot application/service that exposes a REST API with a query endpoint that: 
-  * accept as input parameters: application date, product identifier and brand identifier.
-  * return as output parameters: product identifier, brand identifier, rate that will be applied, date range when the price is applied and final sale price.
+  * accept as **input** parameters:
+    * application date
+    * product identifier
+    * brand identifier
+  * return as **output** parameters: 
+    * product identifier
+    * brand identifier
+    * rate that will be applied
+    * date range when the price is applied
+    * final sale price.
   
 A in-memory database (h2 like) must be used and it can be initialized with the example data shown previously, (the name of the fields can be changed and more fields can be added if is desired, choose the data type that consider right per each field).
 
-* Develop endpoint REST API tests that validate the following requests to the service with the example data:
-  * Test 1: request at 10:00 of the day 14th of the product 35455 for brand 1
-  * Test 2: request at 16:00 of the day 14th of the product 35455 for brand 1
-  * Test 3: request at 21:00 of the day 14th of the product 35455 for brand 1
-  * Test 4: request at 10:00 of the day 15th of the product 35455 for brand 1
-  * Test 5: request at 21:00 of the day 16th of the product 35455 for brand 1
+* Develop **endpoint REST API tests** that validate the following requests to the service with the example data:
+  * **Test 1**: request at 10:00 of the day 14th of the product 35455 for brand 1
+  * **Test 2**: request at 16:00 of the day 14th of the product 35455 for brand 1
+  * **Test 3**: request at 21:00 of the day 14th of the product 35455 for brand 1
+  * **Test 4**: request at 10:00 of the day 15th of the product 35455 for brand 1
+  * **Test 5**: request at 21:00 of the day 16th of the product 35455 for brand 1
 
