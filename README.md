@@ -1,6 +1,6 @@
 # PVP Manager
 
-This is Java 8 project developed with SpringBoot 2.3.1 using H2 database for persistency with an initial load of data. It implements the following [scenario](doc/scenario.md). 
+This is a Java 8 project developed with SpringBoot 2.3.1 using H2 database for persistency with an initial load of data. It implements the following [scenario](doc/scenario.md). 
 
 It has been done following the MVC design pattern and using [Spring Tool Suite 4](https://spring.io/tools)
 
