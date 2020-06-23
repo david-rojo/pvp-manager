@@ -6,7 +6,7 @@ It has been done following the MVC design pattern and using [Spring Tool Suite 4
 
 ## H2 database
 
-For **primary key** of the **PRICES** table has been chosen three fields: BRAND_ID, PRODUCT_ID and PRICE_LIST. This decision has been done thinking that cannot be a row in the table that has the same values for this fields.
+For **primary key** of the **PRICES** table has been chosen three fields: BRAND_ID, PRODUCT_ID and PRICE_LIST. This decision has been done thinking that cannot be a row in the table that has the same values for these fields.
 
 Data types for each field:
 
