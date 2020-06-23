@@ -41,19 +41,19 @@ The project is deployed and ready to verify that implement the requested scenari
 
 * **Test2**:  has to return priceList 2
   * input data: ```brandId = 1, productId=35455, date=2020-06-14-16.00.00```
-  * URL: [http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-14-16.00.00](http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-14-16.00.00)
+  * URL: [http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-14-16.00.00](http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-14-16.00.00)
   * output data: 
   ```{"priceList":2,"brandId":1,"productId":35455,"startDate":"2020-06-14T15:00:00","endDate":"2020-06-14T18:30:00","price":25.45,"currency":"EUR"}```
   
 * **Test3**:  has to return priceList 1
   * input data: ```brandId = 1, productId=35455, date=2020-06-14-21.00.00```
-  * URL: [http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-14-21.00.00](http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-14-21.00.00)
+  * URL: [http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-14-21.00.00](http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-14-21.00.00)
   * output data: 
   ```{"priceList":1,"brandId":1,"productId":35455,"startDate":"2020-06-14T00:00:00","endDate":"2020-12-31T23:59:59","price":35.5,"currency":"EUR"}```
   
 * **Test4**:  has to return priceList 3
   * input data: ```brandId = 1, productId=35455, date=2020-06-15-10.00.00```
-  * URL: [http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-15-10.00.00](http://llocalhost:8080/pvp-manager/pvp/1/35455/2020-06-15-10.00.00)
+  * URL: [http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-15-10.00.00](http://localhost:8080/pvp-manager/pvp/1/35455/2020-06-15-10.00.00)
   * output data: 
   ```{"priceList":3,"brandId":1,"productId":35455,"startDate":"2020-06-15T00:00:00","endDate":"2020-06-15T11:00:00","price":30.5,"currency":"EUR"}```
   
