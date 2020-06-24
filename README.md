@@ -1,6 +1,6 @@
 # PVP Manager
 
-This is a Java 8 project developed with SpringBoot 2.3.1 using H2 database for persistency with an initial load of data. It implements the following [scenario](doc/scenario.md). 
+This is a Java 8 project that exposes a REST API documented with OpenAPI, developed with SpringBoot 2.3.1 using H2 database for persistency with an initial load of data. It implements the following [scenario](doc/scenario.md). 
 
 It has been done following the MVC design pattern and using [Spring Tool Suite 4](https://spring.io/tools)
 
@@ -31,7 +31,11 @@ $ git clone https://github.com/david-rojo/pvp-manager.git
 
 import the project in your IDE and to execute it, right click of the mouse in **spring-boot-pvpmanager** folder in Package Explorer window and select *Run as > Spring Boot App*
 
-The project is deployed and ready to verify that implement the requested scenario. To verify it you can click in the followin links that use the same data as is used in each test:
+The project is deployed and ready to verify that implements the requested scenario. You can access to its exposed API here: [http://localhost:8080/pvp-manager-api.html](http://localhost:8080/pvp-manager-api.html)
+
+![PVP MANAGER OPEN API](doc/img/pvp-manager-openapi.png)
+
+To verify the scenario, you can test in the OpenAPI User Interface, the get method in **pvp** group writing manually all the values or you can simply click in the following links that use the same data that is used in each test:
 
 * **Test1**: has to return priceList 1
   * input data: ```brandId = 1, productId=35455, date=2020-06-14-10.00.00```
@@ -118,7 +122,7 @@ Five tests has been requested in the scenario, testing the rest endpoint, but th
 
 JUnitTests classes:
 
-* [PvpControllerIntegrationTests](spring-boot-pvpmanager/src/test/java/com/pvpmanager/springboot/app/PvpControllerIntegrationTests.java): 
+* [PvpApiControllerIntegrationTests](spring-boot-pvpmanager/src/test/java/com/pvpmanager/springboot/app/PvpApiControllerIntegrationTests.java): 
    * test the rest endpoint. 
    * using ```MockMvc```
    * **required** tests.
