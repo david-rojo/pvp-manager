@@ -13,7 +13,7 @@ public interface IPriceService {
 	
 	public Price addPrice(Price price);
 	
-	public void removePrice(Integer brandId, Integer productId, Integer priceList);
+	public boolean removePrice(Integer brandId, Integer productId, Integer priceList);
 	
 	public Price updatePrice(Price price);
 }

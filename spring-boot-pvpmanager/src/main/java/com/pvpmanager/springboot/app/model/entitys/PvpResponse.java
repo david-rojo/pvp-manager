@@ -2,14 +2,36 @@ package com.pvpmanager.springboot.app.model.entitys;
 
 import java.time.LocalDateTime;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class PvpResponse {
 
+	@Schema(description = "Id of the priceList.", 
+            example = "2", required = true)
 	private Integer priceList;
+	
+	@Schema(description = "Id of the brandId.", 
+            example = "1", required = true)
 	private Integer brandId;	
+	
+	@Schema(description = "Id of the productId.", 
+            example = "35455", required = true)
 	private Integer productId;	
+	
+	@Schema(description = "Start date of the priceList.", 
+            example = "2020-06-14-15.00.00", required = true)
 	private LocalDateTime startDate;	
+	
+	@Schema(description = "End date of the priceList.", 
+            example = "2020-12-31-23.59.59", required = true)
 	private LocalDateTime endDate;	
+	
+	@Schema(description = "Final sale price", 
+            example = "25.45", required = true)
 	private Double price;	
+	
+	@Schema(description = "Currency ISO code", 
+            example = "EUR", required = true)
 	private String currency;
 	
 	

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.pvpmanager.springboot.app.model.dao.IPriceDao;
@@ -61,8 +62,15 @@ public class PriceService implements IPriceService {
 	}
 
 	@Override
-	public void removePrice(Integer brandId, Integer productId, Integer priceList) {
-		priceDao.deleteById(new PriceId(brandId, productId, priceList));
+	public boolean removePrice(Integer brandId, Integer productId, Integer priceList) {
+		try {
+			priceDao.deleteById(new PriceId(brandId, productId, priceList));
+			return true;
+		}
+		catch (EmptyResultDataAccessException e) {
+			logger.info("Not found in database any price");
+			return false;
+		}		
 	}
 
 	@Override

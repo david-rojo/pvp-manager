@@ -1,4 +1,4 @@
-package com.pvpmanager.springboot.app;
+package com.pvpmanager.springboot.app.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
