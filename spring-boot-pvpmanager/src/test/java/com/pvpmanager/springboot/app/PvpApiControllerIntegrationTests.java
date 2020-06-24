@@ -25,7 +25,7 @@ import com.pvpmanager.springboot.app.controller.PvpApiController;
  * @author David Rojo
  *
  */
-public class PvpControllerIntegrationTests {
+public class PvpApiControllerIntegrationTests {
 
 	public static final String REST_ENDPOINT = "/pvp-manager/pvp/{brandId}/{productId}/{date}";
 
