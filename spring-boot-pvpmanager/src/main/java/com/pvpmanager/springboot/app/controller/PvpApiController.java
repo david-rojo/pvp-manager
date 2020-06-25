@@ -3,6 +3,8 @@ package com.pvpmanager.springboot.app.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,7 @@ public class PvpApiController implements PvpApi {
 	
 	
 	@GetMapping(value="pvp/{brandId}/{productId}/{date}" )
-	public PvpResponse getPvp(
+	public ResponseEntity<PvpResponse> getPvp(
 				@PathVariable(value="brandId") Integer brandId, 
 				@PathVariable(value="productId") Integer productId,			
 				@PathVariable(value="date") String date) {
@@ -31,7 +33,13 @@ public class PvpApiController implements PvpApi {
 				+ "\"brandId\" = " + brandId + ", "
 				+ "\"productId\" = " + productId + ", "
 				+ "\"date\" = " + date);
-		return priceService.getPvp(brandId, productId, date);
+		PvpResponse pvpResponse = priceService.getPvp(brandId, productId, date);
+		if (pvpResponse == null) {
+			return new ResponseEntity<PvpResponse>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(pvpResponse);
+		}
 	}
 	
 		

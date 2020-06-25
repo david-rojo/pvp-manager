@@ -2,6 +2,7 @@ package com.pvpmanager.springboot.app.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,10 @@ public interface PriceApi {
 			tags = { "price" })
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "successful operation", 
-                content = @Content(array = @ArraySchema(schema = @Schema(implementation = Price.class)))) })
+                content = @Content(array = @ArraySchema(schema = @Schema(implementation = Price.class)))),
+        @ApiResponse(responseCode = "404", description = "not found any price (empty database)") })
 	@GetMapping(value="price")
-	public List<Price> getPrices();
+	public ResponseEntity<List<Price>> getPrices();
 	
 	
 	@Operation(
@@ -38,10 +40,11 @@ public interface PriceApi {
 			description = "Add a new Price", 
 			tags = { "price" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "successful operation",
-                content = @Content(schema = @Schema(implementation = Price.class))) })
+        @ApiResponse(responseCode = "201", description = "price successfully created",
+                content = @Content(schema = @Schema(implementation = Price.class))),
+        @ApiResponse(responseCode = "404", description = "not created") })
 	@PostMapping(value="price")
-	public Price addPrice(@RequestBody Price price);
+	public ResponseEntity<Price> addPrice(@RequestBody Price price);
 	
 	
 	@Operation(
@@ -50,9 +53,10 @@ public interface PriceApi {
 			tags = { "price" })
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "successful operation",
-        		content = @Content(schema = @Schema(implementation = Price.class))) })
+        		content = @Content(schema = @Schema(implementation = Price.class))),
+        @ApiResponse(responseCode = "500", description = "some error happened in the server. If it is working fine, the existing price will be updated or a new one will be created") })
 	@PutMapping(value="price")
-	public Price updatePrice(@RequestBody Price price);
+	public ResponseEntity<Price> updatePrice(@RequestBody Price price);
 	
 	@Operation(
 			summary = "Deletes a Price", 
@@ -62,7 +66,7 @@ public interface PriceApi {
         @ApiResponse(responseCode = "200", description = "successful operation"),
         @ApiResponse(responseCode = "404", description = "price not found") })
 	@DeleteMapping(value="price/{brandId}/{productId}/{priceList}" )
-	public boolean deletePrice(
+	public ResponseEntity<Boolean> deletePrice(
 			@PathVariable(value="brandId") Integer brandId, 
 			@PathVariable(value="productId") Integer productId,
 			@PathVariable(value="priceList") Integer priceList);

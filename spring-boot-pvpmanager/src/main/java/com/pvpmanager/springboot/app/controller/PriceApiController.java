@@ -5,6 +5,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,25 +29,44 @@ public class PriceApiController implements PriceApi {
 	private IPriceService priceService;
 	
 	@GetMapping(value="price")
-	public List<Price> getPrices() {
+	public ResponseEntity<List<Price>> getPrices() {
 		logger.info("getPrices method invoked");
-		return priceService.getPrices();
+		List<Price> prices = priceService.getPrices();
+		if (prices == null) {
+			return new ResponseEntity<List<Price>>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(prices);
+		}
+		
 	}
 	
 	@PostMapping(value="price")
-	public Price addPrice(@RequestBody Price price)  {
+	public ResponseEntity<Price> addPrice(@RequestBody Price price)  {
 		logger.info("addPrice method invoked");
-		return priceService.addPrice(price);
+		Price p = priceService.addPrice(price);
+		if (p == null) {
+			return new ResponseEntity<Price>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.CREATED).body(p);
+		}
 	}
 	
 	@PutMapping(value="price")
-	public Price updatePrice(@RequestBody Price price)  {
+	public ResponseEntity<Price> updatePrice(@RequestBody Price price)  {
 		logger.info("updatePrice method invoked");
-		return priceService.addPrice(price);
+		Price p = priceService.addPrice(price);
+		if (p == null) {
+			return new ResponseEntity<Price>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(p);
+		}
 	}
 	
 	@DeleteMapping(value="price/{brandId}/{productId}/{priceList}" )
-	public boolean deletePrice(
+	public ResponseEntity<Boolean> deletePrice(
 			@PathVariable(value="brandId") Integer brandId, 
 			@PathVariable(value="productId") Integer productId,
 			@PathVariable(value="priceList") Integer priceList) {
@@ -54,8 +75,13 @@ public class PriceApiController implements PriceApi {
 				+ "\"brandId\" = " + brandId + ", "
 				+ "\"productId\" = " + productId + ", "
 				+ "\"priceList\" = " + priceList);
-		boolean deleted = priceService.removePrice(brandId, productId, priceList);
-		return deleted;
+		Boolean deleted = priceService.removePrice(brandId, productId, priceList);
+		if (!deleted) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(deleted);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(deleted);
+		}
 	}
 
 }

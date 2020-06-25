@@ -1,5 +1,6 @@
 package com.pvpmanager.springboot.app.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -22,9 +23,10 @@ public interface PvpApi {
 			tags = { "pvp" })
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "successful operation", 
-                content = @Content(schema = @Schema(implementation = PvpResponse.class))) })	
+                content = @Content(schema = @Schema(implementation = PvpResponse.class))),
+        @ApiResponse(responseCode = "404", description = "pvp not found") })	
 	@GetMapping(value="pvp/{brandId}/{productId}/{date}" )
-	public PvpResponse getPvp(
+	public ResponseEntity<PvpResponse> getPvp(
 			@Parameter(
 					description="Id of the brand.", 
 					example="1",
