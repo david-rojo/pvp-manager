@@ -67,6 +67,8 @@ To verify the scenario, you can test in the OpenAPI User Interface, the get meth
   * output data: 
   ```{"priceList":4,"brandId":1,"productId":35455,"startDate":"2020-06-15T16:00:00","endDate":"2020-12-31T23:59:59","price":38.95,"currency":"EUR"}```
 
+Implementation of the controller can be examinated in [PvpApiController](spring-boot-pvpmanager/src/main/java/com/pvpmanager/springboot/app/controller/PvpApiController.java) class
+
 ### Additional work
 
 Going beyond the scope of the scenario, a full CRUD set of operations has been implemented for the application in order to manage **PRICES** table:
@@ -76,7 +78,7 @@ Going beyond the scope of the scenario, a full CRUD set of operations has been i
 - Delete an existing price by ID.
 - Get all prices in the table.
 
-Implemention can be examinated in [PvpController](spring-boot-pvpmanager/src/main/java/com/pvpmanager/springboot/app/controller/PvpController.java) class
+Implemention can be examinated in [PriceApiController](spring-boot-pvpmanager/src/main/java/com/pvpmanager/springboot/app/controller/PriceApiController.java) class
 
 ## Access to h2 console
 
