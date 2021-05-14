@@ -106,7 +106,7 @@ SELECT * FROM PRICES
 To run the requested tests we can do it executing this command from **spring-boot-pvpmanager** folder:
 
 ```
-$ mvn clean package 
+$ mvn test 
 ```
 > **Note:** mvn has to be installed in order to execute the command
 
